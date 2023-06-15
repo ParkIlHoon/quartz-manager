@@ -34,8 +34,6 @@ application:
       username: root
       password: passwd
       driver-class-name: com.mysql.cj.jdbc.Driver
-    notification:
-      dooray-hook-url: "https://hook.dooray.com/services/2049115262726134450/3505079761694724483/85Eggor7S5aSJp7l1cqXCw"
 
 
 # for development
