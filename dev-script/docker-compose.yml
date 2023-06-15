@@ -1,0 +1,67 @@
+services:
+  core-db:
+    image: mysql:8
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+    ports:
+      - 13306:3306
+      - 33061:33060
+    volumes:
+      - ./core-db-init/:/docker-entrypoint-initdb.d/
+    environment:
+      MYSQL_DATABASE: core_db
+      MYSQL_ROOT_PASSWORD: passwd
+
+  workspace-a-db:
+    image: mysql:8
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+    ports:
+      - 13307:3306
+      - 33062:33060
+    volumes:
+      - ./workspace-a-db-init/:/docker-entrypoint-initdb.d/
+    environment:
+      MYSQL_DATABASE: workspace_a_db
+      MYSQL_ROOT_PASSWORD: passwd
+#
+#  workspace-b-db:
+#    image: mysql:8
+#    command:
+#      - --character-set-server=utf8mb4
+#      - --collation-server=utf8mb4_unicode_ci
+#    ports:
+#      - 13308:3306
+#    volumes:
+#      - ./workspace-b-db-init/:/docker-entrypoint-initdb.d/
+#    environment:
+#      MYSQL_DATABASE: workspace_b_db
+#      MYSQL_ROOT_PASSWORD: passwd
+#
+#  workspace-c-batch-db:
+#    image: mysql:8
+#    command:
+#      - --character-set-server=utf8mb4
+#      - --collation-server=utf8mb4_unicode_ci
+#    ports:
+#      - 13309:3306
+#    volumes:
+#      - ./workspace-c-batch-db-init/:/docker-entrypoint-initdb.d/
+#    environment:
+#      MYSQL_DATABASE: workspace_c_batch_db
+#      MYSQL_ROOT_PASSWORD: passwd
+#
+#  workspace-c-quartz-db:
+#    image: mysql:8
+#    command:
+#      - --character-set-server=utf8mb4
+#      - --collation-server=utf8mb4_unicode_ci
+#    ports:
+#      - 13310:3306
+#    volumes:
+#      - ./workspace-c-quartz-db-init/:/docker-entrypoint-initdb.d/
+#    environment:
+#      MYSQL_DATABASE: workspace_c_quartz_db
+#      MYSQL_ROOT_PASSWORD: passwd
