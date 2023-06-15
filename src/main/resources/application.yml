@@ -20,7 +20,7 @@ spring:
       initialize-schema: ALWAYS
     properties:
       org.quartz.scheduler.instanceId: AUTO
-      org.quartz.scheduler.instanceName: pinkdiary-batch
+      org.quartz.scheduler.instanceName: workspace-a-batch
       org.quartz.jobStore.class: org.springframework.scheduling.quartz.LocalDataSourceJobStore
 #      org.quartz.jobStore.driverDelegateClass: org.quartz.impl.jdbcjobstore.StdJDBCDelegate
       org.quartz.jobStore.driverDelegateClass: dev.hoon.quartzmanager.quartz.CustomStdJDBCDelegate
@@ -34,6 +34,8 @@ application:
       username: root
       password: passwd
       driver-class-name: com.mysql.cj.jdbc.Driver
+    notification:
+      dooray-hook-url: "https://hook.dooray.com/services/2049115262726134450/3505079761694724483/85Eggor7S5aSJp7l1cqXCw"
 
 
 # for development
